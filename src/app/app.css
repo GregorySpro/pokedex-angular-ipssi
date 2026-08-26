@@ -1,0 +1,12 @@
+.carte-app {
+  max-width: 560px;
+  margin: 32px auto;
+  background-color: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(20, 20, 40, 0.08);
+  overflow: hidden;
+}
+
+.contenu {
+  padding: 24px;
+}

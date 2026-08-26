@@ -1,0 +1,37 @@
+export interface PokemonApiListItem {
+  name: string;
+  url: string;
+}
+
+export interface PokemonApiListResponse {
+  results: PokemonApiListItem[];
+}
+
+export interface PokemonCarte {
+  id: number;
+  nom: string;
+  image: string;
+}
+
+export interface PokemonType {
+  type: {
+    name: string;
+  };
+}
+
+export interface PokemonStat {
+  base_stat: number;
+  stat: {
+    name: string;
+  };
+}
+
+export interface Pokemon {
+  id: number;
+  name: string;
+  sprites: {
+    front_default: string;
+  };
+  types: PokemonType[];
+  stats: PokemonStat[];
+}

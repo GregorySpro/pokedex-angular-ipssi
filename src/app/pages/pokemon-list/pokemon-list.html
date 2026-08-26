@@ -1,0 +1,20 @@
+<input
+  type="text"
+  class="recherche"
+  placeholder="Rechercher un Pokémon..."
+  (input)="onRecherche($event)"
+/>
+
+@if (chargement()) {
+  <p>Chargement des Pokémon...</p>
+} @else if (erreur()) {
+  <p class="erreur">{{ erreur() }}</p>
+} @else if (pokemonsFiltres().length === 0) {
+  <p>Aucun Pokémon ne correspond à cette recherche.</p>
+} @else {
+  <div class="grille">
+    @for (pokemon of pokemonsFiltres(); track pokemon.id) {
+      <app-pokemon-card [pokemon]="pokemon" />
+    }
+  </div>
+}

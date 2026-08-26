@@ -1,0 +1,7 @@
+<a class="carte" [routerLink]="['/pokemon', pokemon().id]">
+  <div class="carte__image-conteneur">
+    <img class="carte__image" [src]="pokemon().image" [alt]="pokemon().nom" loading="lazy" />
+  </div>
+  <p class="carte__numero">N&deg; {{ pokemon().id.toString().padStart(3, '0') }}</p>
+  <h3 class="carte__nom">{{ pokemon().nom }}</h3>
+</a>

@@ -1,0 +1,33 @@
+@if (chargement()) {
+  <p>Chargement...</p>
+} @else if (erreur()) {
+  <p class="erreur">{{ erreur() }}</p>
+} @else if (pokemon(); as p) {
+  <div class="fiche">
+    <div class="fiche__image-conteneur">
+      <img class="fiche__image" [src]="p.sprites.front_default" [alt]="p.name" />
+    </div>
+
+    <p class="fiche__numero">N&deg; {{ p.id.toString().padStart(3, '0') }}</p>
+    <h1 class="fiche__nom">{{ nom() }}</h1>
+
+    <div class="fiche__types">
+      @for (t of p.types; track t.type.name) {
+        <span class="badge" [class]="'badge--' + t.type.name">{{ traduireType(t.type.name) }}</span>
+      }
+    </div>
+
+    <h2 class="fiche__titre-stats">Statistiques de base</h2>
+    <ul class="fiche__stats">
+      @for (s of p.stats; track s.stat.name) {
+        <li>
+          <span class="fiche__stat-nom">{{ traduireStat(s.stat.name) }}</span>
+          <div class="stat-bar-bg">
+            <div class="stat-bar-fill" [style.width.%]="min(s.base_stat, 100)"></div>
+          </div>
+          <span class="fiche__stat-valeur">{{ s.base_stat }}</span>
+        </li>
+      }
+    </ul>
+  </div>
+}
