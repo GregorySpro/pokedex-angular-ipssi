@@ -40,9 +40,10 @@ L'application est ensuite disponible sur `http://localhost:4200`.
   pour la liste que pour le détail).
 - **CSS** : classique, sans librairie ni framework, un fichier `.css` par composant.
 
-## Difficultés rencontrées
+## Fonctionnalités principales
 
-Le principal point d'attention a été le mode zoneless d'Angular 22 : sans Zone.js, une simple
-propriété de classe modifiée après un appel HTTP asynchrone ne déclenche pas de rafraîchissement de la
-vue. Toutes les variables lues dans les blocs `@if` du template ont donc été déclarées comme des
-signals.
+- **Recherche par nom** : le champ de recherche filtre la liste des Pokémon en direct, sans rechargement de la page grâce à un `signal()` et un `computed()`.
+- **Affichage des cartes** : chaque Pokémon est affiché sous forme de carte avec son image, son nom et son identifiant. L'image est construite à partir de l'identifiant extrait de l'URL de l'API, évitant ainsi des appels supplémentaires pour récupérer les détails.
+- **Page de détail** : un clic sur une carte ouvre une page de détail pour le Pokémon sélectionné, affichant ses types et ses statistiques de base. Cette page utilise le routage d'Angular pour naviguer entre les différents Pokémon.
+- **Gestion des erreurs** : l'application gère les erreurs réseau et affiche un message approprié en cas de problème lors de la récupération des données de l'API. Cela inclut la gestion des erreurs pour la liste des Pokémon ainsi que pour la page de détail.
+- **Indicateur de chargement** : un indicateur visuel est affiché pendant le chargement des données, offrant une meilleure expérience utilisateur en informant que les données sont en cours de récupération.
